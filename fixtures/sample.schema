@@ -1,0 +1,30 @@
+type Student {
+  id: StudentId
+  name: StudentName
+  age: StudentAge
+  hasDebt: Boolean
+  classes: [Class]
+}
+
+union Class = Lecture | Lab
+
+type Lecture {
+  professorName: ProfessorName
+  topid: String
+}
+
+type Lab {
+  professorName: ProfessorName
+  hours: Integer
+}
+
+named ProfessorName = Name
+named StudentName = Name
+
+type Name {
+  first: String
+  last: String
+}
+
+named StudentAge = Integer
+
