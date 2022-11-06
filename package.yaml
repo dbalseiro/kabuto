@@ -14,6 +14,7 @@ description: Recursion Schemes tinkering project
 
 dependencies:
 - base >= 4.7 && < 5
+- unordered-containers
 
 ghc-options:
 - -Wall
@@ -31,6 +32,7 @@ library:
   dependencies:
   - text
   - megaparsec
+  - hashable
 
 tests:
   recschemes-test:
@@ -42,3 +44,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - recschemes
+    - hspec

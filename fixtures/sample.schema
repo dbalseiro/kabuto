@@ -10,7 +10,7 @@ union Class = Lecture | Lab
 
 type Lecture {
   professorName: ProfessorName
-  topid: String
+  topic: String
 }
 
 type Lab {
