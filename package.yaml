@@ -32,7 +32,10 @@ library:
   dependencies:
   - text
   - megaparsec
+  - data-fix
   - hashable
+  - containers
+  - mtl
 
 tests:
   recschemes-test:

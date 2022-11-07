@@ -18,13 +18,13 @@ type Lab {
   hours: Integer
 }
 
-named ProfessorName = Name
-named StudentName = Name
+named ProfessorName Name
+named StudentName Name
 
 type Name {
   first: String
   last: String
 }
 
-named StudentAge = Integer
-
+named StudentAge Integer
+named StudentId String

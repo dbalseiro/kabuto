@@ -36,5 +36,5 @@ data FieldDef = FieldDef
   }
   deriving (Eq, Show)
 
-data FieldType = ScalarType TypeName | BaseType Primitive | ListType FieldType
+data FieldType = ScalarType TypeName | BaseType Primitive | ListType TypeName
   deriving (Eq, Show)

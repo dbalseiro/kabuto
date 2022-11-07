@@ -57,19 +57,17 @@ fieldDefP = do
   return $ FieldDef fname ftype
 
 fieldTypeP :: Parser FieldType
-fieldTypeP = listFieldTypeP <|> BaseType <$> try baseTypeP <|> (ScalarType <$> typeNameP)
+fieldTypeP = listFieldTypeP
+         <|> BaseType <$> try baseTypeP
+         <|> ScalarType <$> typeNameP
 
 baseTypeP :: Parser Primitive
 baseTypeP = StringType <$ string "String"
-        <|> IntType <$ string "Integer"
-        <|> BoolType <$ string "Boolean"
+        <|> IntType    <$ string "Integer"
+        <|> BoolType   <$ string "Boolean"
 
 listFieldTypeP :: Parser FieldType
-listFieldTypeP = do
-  void $ try (char '[')
-  ftype <- fieldTypeP
-  void $ char ']'
-  return (ListType ftype)
+listFieldTypeP = ListType <$> between (try $ char '[') (char ']') typeNameP
 
 unionDefP :: Parser TypeDescriptor
 unionDefP = do
@@ -87,8 +85,6 @@ namedDefP = do
   void $ try (string "named")
   hspace
   name <- typeNameP
-  hspace
-  void $ char '='
   hspace
   TypeDescriptor name . NamedTypeDef <$> fieldTypeP
 
