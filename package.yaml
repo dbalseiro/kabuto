@@ -36,6 +36,8 @@ library:
   - hashable
   - containers
   - mtl
+  - aeson
+  - vector
 
 tests:
   recschemes-test:

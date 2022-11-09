@@ -21,7 +21,7 @@ generateSchemaDef t typeSystem = flip evalState mempty . runExceptT $ unfoldFixM
     coalg (TName typeName) = do
       s <- get
       if typeName `S.member` s
-         then throwError (show typeName ++ " Cyclic type")
+         then return () -- throwError (show typeName ++ " Cyclic type")
          else modify (S.insert typeName)
 
       case M.lookup typeName typeSystem of

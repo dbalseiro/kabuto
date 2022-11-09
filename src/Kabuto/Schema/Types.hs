@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveTraversable #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Kabuto.Schema.Types (SchemaDefF(..), ShowNode(..), TypeSystem) where
 
@@ -31,6 +32,4 @@ instance ShowNode SchemaDefF where
 
 fromTypeName :: TypeName -> String
 fromTypeName = T.unpack . unTypeName
-
-
 
